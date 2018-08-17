@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>한국인 당뇨병 발생 10년 위험지수</title>
+    <!-- Path to Framework7 iOS CSS theme styles-->
+    <link rel="stylesheet" href="f7/framework7.ios.min.css">
+    <!-- Path to Framework7 iOS related color styles -->
+    <link rel="stylesheet" href="f7/framework7.ios.colors.min.css">
+    <!-- Path to your custom app styles
+    <link rel="stylesheet" href="path/to/my-app.css">-->
+</head>
+<body>
+<!-- Status bar overlay for full screen mode (PhoneGap) -->
+<div class="statusbar-overlay"></div>
+<!-- Views -->
+<div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                <div class="center sliding">한국인 당뇨병 발생 10년 위험지수</div>
+            </div>
+        </div>
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+            <!-- Page, "data-page" contains page name -->
+            <div data-page="index" class="page">
+                <!-- Scrollable page content -->
+                <div class="page-content">
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">성별</div>
+                                        <div class="item-input">
+                                            <select id="Gender">
+                                                <option value="0">남자</option>
+                                                <option value="1">여자</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Age -->
+                            <li>
+                                <div class="item-content">
+                                     <div class="item-inner">
+                                        <div class="item-title label">나이</div>
+                                        <div class="item-input">
+                                            <input type="number" id="Age" pattern="[0-9]*">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Family history of diabetes -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">당뇨병 가족력</div>
+                                        <div class="item-input">
+                                            <select id="DMHistory">
+                                                <option value="0">없음</option>
+                                                <option value="1">있음</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Alcohol intake -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">술 섭취량</div>
+                                        <div class="item-input">
+                                            <select id="Alcoholintake">
+                                                <option value="0">저-중등도</option>
+                                                <option value="1">고도</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Smoking -->
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">흡연력</div>
+                                        <div class="item-input">
+                                            <select id="Smoking">
+                                                <option value="0">비흡연자</option>
+                                                <option value="1">금연</option>
+                                                <option value="2">흡연</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Physical activity -->
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">신체활동</div>
+                                        <div class="item-input">
+                                            <select id="PhysicalActivity">
+                                                <option value="0">적음</option>
+                                                <option value="1">보통</option>
+                                                <option value="2">많음</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Antihypertensive therapy -->
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">고혈압 약복용</div>
+                                        <div class="item-input">
+                                            <select id="HTNagent">
+                                                <option value="0">없음</option>
+                                                <option value="1">복용</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Select -->
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">스타틴 치료</div>
+                                        <div class="item-input">
+                                            <select id="Statin">
+                                                <option value="0">없음</option>
+                                                <option value="1">복용</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Height -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">키</div>
+                                        <div class="item-input">
+                                            <input type="number" id="Height" pattern="[0-9]*" placeholder="cm">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Weight -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">몸무게</div>
+                                        <div class="item-input">
+                                            <input type="number" id="Weight" pattern="[0-9]*" placeholder="kg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content ">
+
+                                <div class="item-inner">
+                                    <div class="item-title label">BMI</div>
+                                    <div class="item-input" id="BMI">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- SBP -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">수축기 혈압</div>
+                                        <div class="item-input">
+                                            <input type="number" id="SBP" pattern="[0-9]*" placeholder="mmHg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- TC -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">총 콜레스테롤</div>
+                                        <div class="item-input">
+                                            <input type="number" id="TC" pattern="[0-9]*" placeholder="mg/dL">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- FSG -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">공복 혈청 혈당</div>
+                                        <div class="item-input">
+                                            <input type="number" id="FSG" pattern="[0-9]*" placeholder="mg/dL">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- GGT -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">GGT</div>
+                                        <div class="item-input">
+                                            <input type="number" id="GGT" pattern="[0-9]*" placeholder="IU">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>                            
+                        </ul>
+                    </div>
+                    <div class="list-block">
+                        <div class="content-block-title">Results</div>
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">10년내 당뇨병 발생 위험지수</div>
+                                    <div class="item-input" id = "DiabetesEvent">
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <p>본 계산기는 아래 참조문헌을 바탕으로 만들어진 참고목적 용도입니다. 실 사용시 아래 문헌을 바탕으로 재확인 바랍니다.</p>
+                     <p>Reference: <a href="https://e-dmj.org/DOIx.php?id=10.4093/dmj.2018.0014" class="link external">Development and Validation of the Korean Diabetes Risk Score: A 10-Year National Cohort Study </a> </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="f7/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/my-app.js"></script>
+
+</body>
+</html>
